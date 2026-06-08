@@ -4,17 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PressFast</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="funks.js" defer></script>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./funks.js" defer></script>
+    <script src="./visual.js" defer></script>
 </head>
 <body>
-    <div class="container_game">
+    <header>
         <h1>PressFast</h1>
-        <h2 id="game_letter">F</h2>
-        <input type="text" placeholder="..." id="input_user" maxlength="4">
-        <p id="pontos">Pontos</p>
-        <span id="timer">00:00:00</span>
-        
-    </div>
+        <nav class="btns_nav">
+            <button >Ajustes</button>
+            <button class="btn_nav_selected" >Game</button>
+            <button >Perfil</button>
+        </nav>
+    </header>
+    <main>
+        <div class="container_ajustes">
+            <button id="ajuste_facil">Fácil: 7 segundos</button>
+            <button id="ajuste_medio">Médio: 5 segundos</button>
+            <button id="ajuste_dificil">Difícil: 3 segundos</button>
+        </div>
+        <div class="container_game">
+            <h2 id="game_letter">F</h2>
+            <input type="text" placeholder="..." id="input_user" maxlength="4">
+            <p id="pontos">Pontos</p>
+            <span id="timer">00:00:00</span>
+            <span id="dificuldade_display">Modo: Fácil</span>
+        </div>
+        <div class="container_perfil">
+            
+        </div>
+    </main>
+    <footer>
+        <span>Desnvolvido por: <a href="">Vitor Prates</a></span>
+    </footer>
 </body>
 </html>

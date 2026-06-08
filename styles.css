@@ -2,6 +2,15 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+:root {
+  --basic1: black;
+  --basic2: white;
+  --facil:#00ca00;
+  --medio:#ffff45;
+  --dificil:#DC143C;
 }
 
 html {
@@ -12,27 +21,71 @@ html {
 body {
   width: 100%;
   height: 100%;
+  display: grid;
+  grid-template-rows: 15% 80% 5%;
+}
+
+header {
+  background-color: var(--basic1);
+  color: var(--basic2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+header h1 {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+header .btns_nav {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
+}
+header .btns_nav button {
+  width: 25%;
+  border: none;
+  background-color: black;
+  color: var(--basic2);
+  font-weight: bold;
+  font-size: 1em;
+  padding: 10px;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+  border-radius: 10px 10px 0px 0px;
+}
+header .btns_nav .btn_nav_selected {
+  background-color: var(--basic2);
+  color: var(--basic1);
 }
 
-.container_game {
+main {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+main .container_game {
   width: 400px;
   height: 400px;
   border: 1px solid;
+  border-radius: 10px;
   display: flex;
   flex-flow: wrap column;
   align-items: center;
   justify-content: center;
+  position: absolute;
+  left: 100%;
+  transition: 0.2s ease-in-out;
 }
-.container_game h1 {
-  margin: 30px 0px auto 0px;
-}
-.container_game h2 {
+main .container_game h2 {
   margin: 0px 0px 10px 0px;
 }
-.container_game input {
+main .container_game input {
   margin: 0px 0px 10px 0px;
   width: 100px;
   height: 100px;
@@ -45,10 +98,67 @@ body {
   border-radius: 10px;
   outline: none;
 }
-.container_game p {
+main .container_game p {
   margin: 0px 0px 0px 0px;
 }
-.container_game span {
-  margin: 0px 0px auto 0px;
+main .container_game span {
   font-size: 1.6em;
+}
+main .container_ajustes {
+  width: 400px;
+  height: 400px;
+  border: 1px solid;
+  border-radius: 10px;
+  display: flex;
+  flex-flow: wrap column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  gap: 10%;
+  transition: 0.2s ease-in-out;
+}
+main .container_ajustes button {
+  background-color: white;
+  border: none;
+  font-size: 1.5em;
+  outline: none;
+  width: 70%;
+  text-align: start;
+  transition: 0.5s ease-in-out;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+main .container_ajustes #ajuste_facil::after, main .container_ajustes #ajuste_medio::after, main .container_ajustes #ajuste_dificil::after {
+  content: "";
+  transition: 0.2s ease-in-out;
+  text-align: end;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--facil);
+  right: 100%;
+  opacity: 0.2;
+}
+main .container_ajustes #ajuste_medio::after {
+  opacity: 0.4;
+  background-color: var(--medio);
+}
+main .container_ajustes #ajuste_dificil::after {
+  background-color: var(--dificil);
+}
+main .container_ajustes #ajuste_facil:hover::after, main .container_ajustes #ajuste_medio:hover::after, main .container_ajustes #ajuste_dificil:hover::after {
+  right: 0%;
+}
+
+footer {
+  width: 100%;
+  background-color: var(--basic1);
+  color: var(--basic2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+footer a {
+  color: orange;
 }/*# sourceMappingURL=styles.css.map */

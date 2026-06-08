@@ -3,7 +3,20 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
+:root
+{
+    --basic1: black;
+    --basic2: white;
+    --facil:#00ca00;
+    --medio:#ffff45;
+    --dificil:#DC143C;
+}
+
+
+
 html
 {
     width: 100vw;
@@ -13,48 +26,165 @@ body
 {
     width: 100%;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    grid-template-rows: 15% 80% 5%;
 }
-.container_game
+header
 {
-    width: 400px;
-    height: 400px;
-    border: 1px solid;
+    background-color: var(--basic1);
+    color: var(--basic2);
     display: flex;
-    flex-flow: wrap column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
     h1
     {
-        margin: 30px 0px auto 0px;
+        margin-top: auto;
+        margin-bottom: auto;
     }
-    h2
+    .btns_nav
     {
-        margin: 0px 0px 10px 0px;
-    }
-    input
-    {
-        margin: 0px 0px 10px 0px;
-        width: 100px;
-        height: 100px;
+        width: 100%;
+        // background-color: red;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 2em;
-        text-align: center;
+        gap: 10px;
+        button
+        {
+            width: 25%;
+            border: none;
+            background-color: black;
+            color: var(--basic2);
+            font-weight: bold;
+            font-size: 1em;
+            padding: 10px;
+            transition: 0.3s ease-in-out;
+            cursor: pointer;
+            border-radius: 10px 10px 0px 0px;
+        }
+        .btn_nav_selected
+        {
+            background-color: var(--basic2);
+            color: var(--basic1);
+            
+        }
+    }
+}
+
+main
+{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    .container_game
+    {
+        width: 400px;
+        height: 400px;
         border: 1px solid;
         border-radius: 10px;
-        outline: none;
+        display: flex;
+        flex-flow: wrap column;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        left: 100%;
+        transition: 0.2s ease-in-out;
+        h2
+        {
+            margin: 0px 0px 10px 0px;
+        }
+        input
+        {
+            margin: 0px 0px 10px 0px;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            text-align: center;
+            border: 1px solid;
+            border-radius: 10px;
+            outline: none;
+        }
+        p
+        {
+            margin: 0px 0px 0px 0px;
+        }
+        span
+        {
+            // margin: 0px 0px auto 0px;
+            font-size: 1.6em;
+        }
     }
-    p
+    .container_ajustes
     {
-        margin: 0px 0px 0px 0px;
+        width: 400px;
+        height: 400px;
+        border: 1px solid;
+        border-radius: 10px;
+        display: flex;
+        flex-flow: wrap column;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        gap: 10%;
+        transition: 0.2s ease-in-out;
+        button
+        {
+            background-color: white;
+            border: none;
+            font-size: 1.5em;
+            outline: none;
+            width: 70%;
+            text-align: start;
+            transition: 0.5s ease-in-out;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        
+        #ajuste_facil::after, #ajuste_medio::after, #ajuste_dificil::after
+        {
+            content: "";
+            transition: 0.2s ease-in-out;
+            text-align: end;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--facil);
+            right: 100%;
+            opacity: 0.2;
+        }
+        #ajuste_medio::after
+        {
+            opacity: 0.4;
+            background-color: var(--medio);
+        }
+        #ajuste_dificil::after
+        {
+            background-color: var(--dificil);
+        }
+        #ajuste_facil:hover::after,#ajuste_medio:hover::after,#ajuste_dificil:hover::after
+        {
+            right: 0%;
+        }
     }
-    span
+}
+footer
+{
+    width: 100%;
+    background-color: var(--basic1);
+    color: var(--basic2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    a
     {
-        margin: 0px 0px auto 0px;
-        font-size: 1.6em;
+        color: orange;
     }
 }
