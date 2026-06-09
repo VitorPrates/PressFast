@@ -53,7 +53,7 @@ header
         padding: 1px 0px 0px 0px;
         button
         {
-            width: 25%;
+            width: 20%;
             border: none;
             border-top: 1px solid black;
             background-color: black;
@@ -90,43 +90,85 @@ main
     overflow: hidden;
     .container_game
     {
-        width: 400px;
+        width: 90%;
         height: 400px;
         border: 1px solid;
         border-radius: 10px;
         display: flex;
-        flex-flow: wrap column;
+        flex-flow: wrap row;
         align-items: center;
-        justify-content: center;
-        position: absolute;
-        left: auto;
-        transition: 0.2s ease-in-out;
-        h2
+        justify-content: space-evenly;
+        transform: translateX(0vw);
+        transition: 0.35s ease-in-out;
+        .display_player
         {
-            margin: 0px 0px 10px 0px;
-        }
-        input
-        {
-            margin: 0px 0px 10px 0px;
-            width: 100px;
-            height: 100px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2em;
-            text-align: center;
+            width: 45%;
+            height: 90%;
             border: 1px solid;
-            border-radius: 10px;
-            outline: none;
+            border-radius: 5px;
+            .nickname_title
+            {
+                width: 100%;
+                height: 45px;
+                display: flex;
+                flex-direction: row;
+                // border-bottom: 1px solid;
+                padding: 5px;
+                gap: 5px;
+                input
+                {
+                    width: 80%;
+                    padding: 0 10px;
+                }
+                button
+                {
+                    width: 20%;
+                }
+            }
+            .recordes_por_nick
+            {
+                width: 100%;
+                height: calc(100% - 45px);
+                border-top: 1px solid;
+                border-radius: 5px 5px 0 0;
+            }
         }
-        p
+        .display_game
         {
-            margin: 0px 0px 0px 0px;
-        }
-        span
-        {
-            // margin: 0px 0px auto 0px;
-            font-size: 1.6em;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid;
+            width: 45%;
+            height: 90%;
+            border-radius: 5px;
+            h2
+            {
+                margin: 0px 0px 10px 0px;
+            }
+            input
+            {
+                margin: 0px 0px 10px 0px;
+                width: 100px;
+                height: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 2em;
+                text-align: center;
+                border: 1px solid;
+                border-radius: 10px;
+                outline: none;
+            }
+            p
+            {
+                margin: 0px 0px 0px 0px;
+            }
+            span
+            {
+                font-size: 1.6em;
+            }
         }
     }
     .container_ajustes
@@ -141,8 +183,8 @@ main
         justify-content: center;
         position: absolute;
         gap: 10%;
-        transition: 0.2s ease-in-out;
-        left: -100%;
+        transition: 0.35s ease-in-out;
+        transform: translateX(-100vw);
         button
         {
             background-color: white;
@@ -151,7 +193,7 @@ main
             outline: none;
             width: 70%;
             text-align: start;
-            transition: 0.5s ease-in-out;
+            transition: 0.35s ease-in-out;
             position: relative;
             cursor: pointer;
             overflow: hidden;
@@ -183,7 +225,7 @@ main
             right: 0%;
         }
     }
-    .container_perfil
+    .container_ranking
     {
         width: 400px;
         height: 400px;
@@ -195,8 +237,8 @@ main
         justify-content: center;
         position: absolute;
         gap: 10%;
-        transition: 0.2s ease-in-out;
-        left: 100%;
+        transition: 0.35s ease-in-out;
+        transform: translateX(100vw);
     }
     .container_sobre
     {
@@ -210,8 +252,8 @@ main
         justify-content: center;
         position: absolute;
         gap: 10%;
-        transition: 0.2s ease-in-out;
-        left: -200%;
+        transition: 0.35s ease-in-out;
+        transform: translateX(-200vw);
         p
         {
             width: 90%;

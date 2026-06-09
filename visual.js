@@ -2,7 +2,7 @@
 const nav_btns = document.querySelector(".btns_nav")
 const main_container_ajustes = document.querySelector(".container_ajustes")
 const main_container_game = document.querySelector(".container_game")
-const main_container_perfil = document.querySelector(".container_perfil")
+const main_container_ranking = document.querySelector(".container_ranking")
 const main_container_sobre = document.querySelector(".container_sobre")
 const btn_ajuste_dificuldade = document.querySelectorAll(".btn_ajuste_dificuldade")
 const dificuldade_display = document.getElementById("dificuldade_display")
@@ -19,28 +19,28 @@ function mudar_tela(tela)
 {
     switch (tela) {
         case "Ajustes":
-            main_container_ajustes.style.left = "30%"
-            main_container_game.style.left = "100%"
-            main_container_perfil.style.left = "200%"
-            main_container_sobre.style.left = "-200%"
+            main_container_ajustes.style.transform = "translateX(0vw)"
+            main_container_game.style.transform = "translateX(100vw)"
+            main_container_ranking.style.transform = "translateX(200vw)"
+            main_container_sobre.style.transform = "translateX(-100vw)"
             break;
         case "Game":
-            main_container_ajustes.style.left = "-100%"
-            main_container_game.style.left = "30%"
-            main_container_perfil.style.left = "100%"
-            main_container_sobre.style.left = "-200%"
+            main_container_ajustes.style.transform = "translateX(-100vw)"
+            main_container_game.style.transform = "translateX(0vw)"
+            main_container_ranking.style.transform = "translateX(100vw)"
+            main_container_sobre.style.transform = "translateX(-200vw)"
             break;
-        case "Perfil":
-            main_container_ajustes.style.left = "-200%"
-            main_container_game.style.left = "-100%"
-            main_container_perfil.style.left = "30%"
-            main_container_sobre.style.left = "-300%"
+        case "Ranking":
+            main_container_ajustes.style.transform = "translateX(-200vw)"
+            main_container_game.style.transform = "translateX(-100vw)"
+            main_container_ranking.style.transform = "translateX(0vw)"
+            main_container_sobre.style.transform = "translateX(-300vw)"
             break;
         case "Sobre":
-            main_container_ajustes.style.left = "100%"
-            main_container_game.style.left = "200%"
-            main_container_perfil.style.left = "300%"
-            main_container_sobre.style.left = "30%"
+            main_container_ajustes.style.transform = "translateX(100vw)"
+            main_container_game.style.transform = "translateX(200vw)"
+            main_container_ranking.style.transform = "translateX(300vw)"
+            main_container_sobre.style.transform = "translateX(0vw)"
             break;
     }
 }

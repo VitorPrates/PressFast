@@ -15,7 +15,7 @@
             <button >Sobre</button>
             <button >Ajustes</button>
             <button class="btn_nav_selected" >Game</button>
-            <button >Perfil</button>
+            <button >Ranking</button>
         </nav>
     </header>
     <main>
@@ -31,14 +31,28 @@
             <p>O jogo acaba ao completar 15 pontos.</p>
         </div>
         <div class="container_game">
-            <h2 id="game_letter">F</h2>
-            <input type="text" placeholder="..." id="input_user" maxlength="4">
-            <p id="pontos">Pontos</p>
-            <span id="timer">00:00:00</span>
-            <span id="dificuldade_display">Fácil</span>
+            <div class="display_player">
+                <div class="nickname_title">
+                    <input id="nickname" type="text">
+                    <button>Go!</button>
+                </div>
+                <div class="recordes_por_nick">
+
+                </div>
+
+            </div>
+            <div class="display_game">
+                <h2 id="game_letter">PRESSFAST</h2>
+                <input style="text-transform: uppercase;" 
+                        autocapitalize="characters"
+                        oninput="this.value = this.value.toUpperCase()" type="text" placeholder="..." id="input_user" maxlength="4">
+                <p id="pontos">Pontos</p>
+                <span id="timer">00:00:00</span>
+                <span id="dificuldade_display">Fácil</span>
+            </div>
         </div>
-        <div class="container_perfil">
-            <h2>perfil</h2>
+        <div class="container_ranking">
+            <h2>Ranking</h2>
         </div>
     </main>
     <footer>
