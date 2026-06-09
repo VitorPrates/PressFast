@@ -2,6 +2,7 @@ const user_input = document.getElementById("input_user");
 const game_letter = document.getElementById("game_letter");
 const pontos = document.getElementById("pontos");
 const timer_display = document.getElementById("timer");
+let dificultade = "Dificil"
 
 const letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const TOTAL_TENTATIVAS = 15;
@@ -35,7 +36,22 @@ function sortearProximaLetra() {
 
 function iniciarCronometro() {
     clearInterval(intervalo);
-    tempoRestante = 3;
+    dificultade = document.getElementById("dificuldade_display").innerHTML
+    switch (dificultade) {
+        case "Fácil":
+            tempoRestante = 7;
+            break;
+        case "Médio":
+            tempoRestante = 5;
+            break;
+        case "Dificil":
+            tempoRestante = 3;
+            break;
+    
+        default:
+            break;
+    }
+  
     timer_display.innerText = tempoRestante;
 
     intervalo = setInterval(() => {
@@ -62,7 +78,6 @@ function finalizarJogo() {
 sortearProximaLetra();
 
 user_input.addEventListener("input", () => {
-    // SEGUNDA MUDANÇA: Se é a primeira vez digitando, inicia tudo
     if (!jogoIniciado) {
         jogoIniciado = true;
         tempoInicioRodada = Date.now();

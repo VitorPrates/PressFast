@@ -12,6 +12,7 @@
     <header>
         <h1>PressFast</h1>
         <nav class="btns_nav">
+            <button >Sobre</button>
             <button >Ajustes</button>
             <button class="btn_nav_selected" >Game</button>
             <button >Perfil</button>
@@ -19,23 +20,29 @@
     </header>
     <main>
         <div class="container_ajustes">
-            <button id="ajuste_facil">Fácil: 7 segundos</button>
-            <button id="ajuste_medio">Médio: 5 segundos</button>
-            <button id="ajuste_dificil">Difícil: 3 segundos</button>
+            <h2>Ajustes</h2>
+            <button id="ajuste_facil" class="btn_ajuste_dificuldade">Fácil: 7 segundos</button>
+            <button id="ajuste_medio" class="btn_ajuste_dificuldade">Médio: 5 segundos</button>
+            <button id="ajuste_dificil" class="btn_ajuste_dificuldade">Difícil: 3 segundos</button>
+        </div>
+        <div class="container_sobre">
+            <h2>Sobre o jogo</h2>
+            <p>Um conjunto de 4 letras aparecerá e você deve digitá-las o mais rápido possível, e se passar do tempo, você perde!</p>
+            <p>O jogo acaba ao completar 15 pontos.</p>
         </div>
         <div class="container_game">
             <h2 id="game_letter">F</h2>
             <input type="text" placeholder="..." id="input_user" maxlength="4">
             <p id="pontos">Pontos</p>
             <span id="timer">00:00:00</span>
-            <span id="dificuldade_display">Modo: Fácil</span>
+            <span id="dificuldade_display">Fácil</span>
         </div>
         <div class="container_perfil">
-            
+            <h2>perfil</h2>
         </div>
     </main>
     <footer>
-        <span>Desnvolvido por: <a href="">Vitor Prates</a></span>
+        <span>Desnvolvido por: <a href="https://github.com/VitorPrates/" target="_blank">Vitor Prates</a></span>
     </footer>
 </body>
 </html>
