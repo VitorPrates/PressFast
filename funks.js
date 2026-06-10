@@ -1,13 +1,14 @@
 //player things
 const form_nickname = document.getElementById("form_nickname")
 const nickname_registrado = document.getElementById("nickname_registrado")
-
+let primeira_troca = true
 
 //Game coisas
 const user_input = document.getElementById("input_user");
 const game_letter = document.getElementById("game_letter");
 const pontos = document.getElementById("pontos");
 const timer_display = document.getElementById("timer");
+const btn_salvar_recorde = document.getElementById("btn_salvar_recorde")
 let dificultade = "Dificil"
 
 const letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -109,14 +110,27 @@ user_input.addEventListener("input", () => {
 
 //player funks
 nickname_registrado.addEventListener("click", () => {
-    nickname_registrado.style.display = "none"
+    primeira_troca = false
+    nickname_registrado.style.left = "100%"
+    btn_salvar_recorde.style.transform = "rotatex(90deg)"
+    setTimeout(() => {
+        nickname_registrado.style.display = "none"
+        nickname_registrado.style.left = "-100%"
+    }, 300);
 })
 form_nickname.addEventListener("submit", (e) =>{
     e.preventDefault()
     const form_entrada = new FormData(form_nickname);
     const dados = Object.fromEntries(form_entrada.entries());
-    nickname_registrado.innerHTML = dados.nickname
-    nickname_registrado.style.display = "flex"
+    if(dados.nickname)
+    {
+        nickname_registrado.style.display = "flex"
+        btn_salvar_recorde.style.transform = "rotatex(0deg)"
+        setTimeout(() => {
+            nickname_registrado.innerHTML = primeira_troca? `${dados.nickname} <img src="imgs/click.gif" alt="">` : `${dados.nickname}`
+            nickname_registrado.style.left = "0%"
+        }, 100);
+    }
 })
 
 
