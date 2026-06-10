@@ -1,3 +1,9 @@
+//player things
+const form_nickname = document.getElementById("form_nickname")
+const nickname_registrado = document.getElementById("nickname_registrado")
+
+
+//Game coisas
 const user_input = document.getElementById("input_user");
 const game_letter = document.getElementById("game_letter");
 const pontos = document.getElementById("pontos");
@@ -10,11 +16,13 @@ const TOTAL_TENTATIVAS = 15;
 let acertos = 0;
 let tempoRestante = 3;
 let intervalo;
-let jogoIniciado = false; // Controle para o início do jogo
+let jogoIniciado = false;
 
 let tempoAcumulado = 0;
 let tempoInicioRodada; 
 
+
+//Game funks
 function sortearProximaLetra() {
     if (acertos >= TOTAL_TENTATIVAS) {
         finalizarJogo();
@@ -97,3 +105,20 @@ user_input.addEventListener("input", () => {
         sortearProximaLetra();
     }
 });
+//end game funks
+
+//player funks
+nickname_registrado.addEventListener("click", () => {
+    nickname_registrado.style.display = "none"
+})
+form_nickname.addEventListener("submit", (e) =>{
+    e.preventDefault()
+    const form_entrada = new FormData(form_nickname);
+    const dados = Object.fromEntries(form_entrada.entries());
+    nickname_registrado.innerHTML = dados.nickname
+    nickname_registrado.style.display = "flex"
+})
+
+
+
+//end Player funks

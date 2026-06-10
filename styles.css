@@ -92,20 +92,36 @@ main .container_game .display_player {
   border: 1px solid;
   border-radius: 5px;
 }
-main .container_game .display_player .nickname_title {
+main .container_game .display_player .nickname_title #form_nickname {
   width: 100%;
   height: 45px;
   display: flex;
   flex-direction: row;
   padding: 5px;
   gap: 5px;
+  position: relative;
 }
-main .container_game .display_player .nickname_title input {
+main .container_game .display_player .nickname_title #form_nickname input {
   width: 80%;
   padding: 0 10px;
 }
-main .container_game .display_player .nickname_title button {
+main .container_game .display_player .nickname_title #form_nickname button {
   width: 20%;
+}
+main .container_game .display_player .nickname_title #form_nickname h4 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--basic2);
+  border-radius: 5px;
+  left: 0;
+  top: 0;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+  display: none;
+  cursor: pointer;
 }
 main .container_game .display_player .recordes_por_nick {
   width: 100%;
