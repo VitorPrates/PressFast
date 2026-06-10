@@ -53,7 +53,7 @@ function iniciarCronometro() {
         case "Médio":
             tempoRestante = 5;
             break;
-        case "Dificil":
+        case "Difícil":
             tempoRestante = 3;
             break;
     
