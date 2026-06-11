@@ -314,6 +314,11 @@ main
         p
         {
             width: 90%;
+            abbr
+            {
+                text-decoration: underline;
+                cursor: zoom-out;
+            }
         }
     }
     .container_sobre::-webkit-scrollbar
@@ -325,8 +330,8 @@ main
     .container_sobre::-webkit-scrollbar-thumb
     {
         background-color: var(--basic2);
-        border-radius: 0px 10px 10px 0px;
-        
+        border-radius: 10px;
+        border: 5px solid;
     }
 }
 footer

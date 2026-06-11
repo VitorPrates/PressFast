@@ -269,6 +269,10 @@ main .container_sobre {
 main .container_sobre p {
   width: 90%;
 }
+main .container_sobre p abbr {
+  text-decoration: underline;
+  cursor: zoom-out;
+}
 main .container_sobre::-webkit-scrollbar {
   border-radius: 0px 10px 10px 0px;
   padding: 2px;
@@ -276,7 +280,8 @@ main .container_sobre::-webkit-scrollbar {
 }
 main .container_sobre::-webkit-scrollbar-thumb {
   background-color: var(--basic2);
-  border-radius: 0px 10px 10px 0px;
+  border-radius: 10px;
+  border: 5px solid;
 }
 
 footer {

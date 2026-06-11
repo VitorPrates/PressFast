@@ -72,7 +72,11 @@ function iniciarCronometro() {
         if (tempoRestante <= 0) {
             clearInterval(intervalo);
             alert("O tempo acabou! Tente ser mais rápido na próxima.");
-            location.reload(); 
+            user_input.disabled = true;
+            btn_reiniciar_game.style.transform = "rotateX(0deg)"
+            btn_reiniciar_game.focus()
+            
+            // location.reload(); 
         }
     }, 1000);
 }
@@ -124,6 +128,7 @@ function iniciar_jogo()
 //botão reiniciar
 btn_reiniciar_game.addEventListener("click",(e)=>{
     e.preventDefault()
+    user_input.value = ""
     if(game_letter.innerText = "FIM!")
     {
         jogoIniciado = false
