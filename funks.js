@@ -181,20 +181,29 @@ form_nickname.addEventListener("submit", (e) =>{
             nickname_registrado.innerHTML = primeira_troca? `${dados.nickname} <img src="imgs/click.gif" alt="">` : `${dados.nickname}`
             nickname_registrado.style.left = "0%"
         }, 100);
+        user_input.focus()
     }
 })
 //end Player funks
 
 //para o back end
 async function salvar_recorde() {
-    alert("Salvando")
+    // alert("Salvando")
     let recorde = {
         dificultade: dificultade,
         tempo: (tempoAcumulado / TOTAL_TENTATIVAS),
         nickname: nickname_registrado.innerHTML.replace("<img src=\"imgs/click.gif\" alt=\"\">","").trim()
     }
-    console.log(recorde);
-    
+    // console.log(recorde);
+    fetch("http://localhost:3000/salvarrecorde", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify(recorde)
+    })
+    .then(res => res.json())
+    .then(data => console.log(data));
 }
 
 
