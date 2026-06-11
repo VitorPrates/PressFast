@@ -1,3 +1,5 @@
+import reiniciar_game from "./funks.js"
+
 //header
 const nav_btns = document.querySelector(".btns_nav")
 const main_container_ajustes = document.querySelector(".container_ajustes")
@@ -63,7 +65,10 @@ btn_ajuste_dificuldade.forEach((btn,index) => {
         Array.from(nav_btns.children).forEach((child) => {
         child.classList.remove("btn_nav_selected")
         });
-         Array.from(nav_btns.children)[2].classList.add("btn_nav_selected")
+        Array.from(nav_btns.children)[2].classList.add("btn_nav_selected")
+        setTimeout(() => {
+            reiniciar_game("aqui")
+        }, 300);
     })
-    
 })
+

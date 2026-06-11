@@ -32,7 +32,7 @@ function sortearProximaLetra() {
         return;
     }
     game_letter.innerText = ""
-    for(i = 0; i < 4; i++)
+    for(let i = 0; i < 4; i++)
     {
         const indice = Math.floor(Math.random() * letras.length);
         game_letter.innerText += letras[indice];
@@ -128,6 +128,11 @@ function iniciar_jogo()
 //botão reiniciar
 btn_reiniciar_game.addEventListener("click",(e)=>{
     e.preventDefault()
+    reiniciar_game()
+})
+function reiniciar_game(mensagem) {
+    console.log(mensagem);
+    
     user_input.value = ""
     if(game_letter.innerText = "FIM!")
     {
@@ -141,8 +146,7 @@ btn_reiniciar_game.addEventListener("click",(e)=>{
         user_input.disabled = false
         user_input.focus()
     }
-})
-
+}
 //botão salvar recorte
 btn_salvar_recorde.addEventListener("click", (e) =>{
     e.preventDefault()
@@ -157,6 +161,7 @@ btn_salvar_recorde.addEventListener("click", (e) =>{
     else
     {
         salvar_recorde()
+        reiniciar_game()
     }
 })
 
@@ -189,21 +194,43 @@ form_nickname.addEventListener("submit", (e) =>{
 //para o back end
 async function salvar_recorde() {
     // alert("Salvando")
+    const display_salvando = document.querySelector(".msg_dados_salvos")
+    display_salvando.innerHTML = "..."
+    dificultade = document.getElementById("dificuldade_display").innerHTML
     let recorde = {
         dificultade: dificultade,
         tempo: (tempoAcumulado / TOTAL_TENTATIVAS),
         nickname: nickname_registrado.innerHTML.replace("<img src=\"imgs/click.gif\" alt=\"\">","").trim()
     }
-    // console.log(recorde);
-    fetch("http://localhost:3000/salvarrecorde", {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify(recorde)
-    })
-    .then(res => res.json())
-    .then(data => console.log(data));
+    display_salvando.innerHTML = `
+    <h5>${recorde.nickname}</h5>
+    <h5>${(recorde.tempo).toFixed(2)}</h5>
+    <h5>${recorde.dificultade}</h5>
+    <h5>Salvando...</h5>
+    `
+    display_salvando.style.bottom = "-29px"
+    setTimeout(() => {
+        display_salvando.innerHTML = `
+        <h5>${(recorde.nickname)}</h5>
+        <h5>${(recorde.tempo).toFixed(2)}</h5>
+        <h5>${recorde.dificultade}</h5>
+        <h5>Salvo!</h5>
+    `    
+    }, 1500);
+    setTimeout(() => {
+         display_salvando.style.bottom = "0px"
+    }, 3500);
+    
+    console.log(recorde);
+    // fetch("http://localhost:3000/salvarrecorde", {
+    // method: "POST",
+    // headers: {
+    //     "Content-Type": "application/json"
+    // },
+    // body: JSON.stringify(recorde)
+    // })
+    // .then(res => res.json())
+    // .then(data => console.log(data));
 }
 
 
@@ -212,3 +239,5 @@ async function testar_api(params) {
     console.log(url.mensagem);
 }
 testar_api()
+
+export default reiniciar_game
