@@ -197,9 +197,9 @@ main
             {
                 font-size: 1.6em;
             }
-            button
+            #btn_salvar_recorde, #btn_reiniciar_game
             {
-                margin: 20px;
+                // margin: 20px;
                 cursor: pointer;
                 background-color: white;
                 border: none;
@@ -207,8 +207,23 @@ main
                 font-size: 1.3em;
                 display: block;
                 transform: rotateX(90deg);
+                margin-bottom: 10px;
+                padding: 0 5px;
+                border-radius: 5px 5px 0 0;
                 transition: 0.2s ease-in-out;
             }
+            #btn_reiniciar_game
+            {
+                transform: rotateX(90deg);
+                margin-bottom: -20px;
+            }
+            #tempo_medio_resultado
+            {
+                transform: rotateX(90deg);
+                transition: 0.3s ease-in-out;
+                margin-bottom: 10px;
+            }
+
         }
     }
     .container_ajustes
@@ -287,17 +302,31 @@ main
         border: 1px solid;
         border-radius: 10px;
         display: flex;
-        flex-flow: wrap column;
+        flex-flow: column;
         align-items: center;
-        justify-content: center;
+        // justify-content: center;
+        padding: 10px;
         position: absolute;
-        gap: 10%;
+        gap: 20px;
         transition: 0.35s ease-in-out;
         transform: translateX(-200vw);
+        overflow-y: scroll;
         p
         {
             width: 90%;
         }
+    }
+    .container_sobre::-webkit-scrollbar
+    {
+        border-radius: 0px 10px 10px 0px;
+        padding: 2px;
+        background-color: var(--basic1);
+    }
+    .container_sobre::-webkit-scrollbar-thumb
+    {
+        background-color: var(--basic2);
+        border-radius: 0px 10px 10px 0px;
+        
     }
 }
 footer

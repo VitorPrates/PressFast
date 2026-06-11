@@ -9,10 +9,12 @@ const game_letter = document.getElementById("game_letter");
 const pontos = document.getElementById("pontos");
 const timer_display = document.getElementById("timer");
 const btn_salvar_recorde = document.getElementById("btn_salvar_recorde")
+const btn_reiniciar_game = document.getElementById("btn_reiniciar_game")
+const tempo_medio_resultado = document.getElementById("tempo_medio_resultado")
 let dificultade = "Dificil"
 
 const letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const TOTAL_TENTATIVAS = 15;
+const TOTAL_TENTATIVAS = 3;
 
 let acertos = 0;
 let tempoRestante = 3;
@@ -80,14 +82,22 @@ function finalizarJogo() {
     user_input.disabled = true;
     const tempoMedio = (tempoAcumulado / TOTAL_TENTATIVAS).toFixed(2);
     game_letter.innerText = "FIM!";
-    alert(`Parabéns! Tempo médio de reação: ${tempoMedio}s`);
+    btn_reiniciar_game.style.transform = "rotateX(0deg)"
+    tempo_medio_resultado.innerHTML = `Tempo médio de reação: ${tempoMedio}s`
+    tempo_medio_resultado.style.transform = "rotateX(0deg)"
+    timer_display.innerText = "-";
+    btn_reiniciar_game.focus()
 }
 
 // Inicializa a primeira letra, mas sem soltar o cronômetro
 sortearProximaLetra();
 
 user_input.addEventListener("input", () => {
-    if (!jogoIniciado) {
+   iniciar_jogo()
+});
+function iniciar_jogo()
+{
+     if (!jogoIniciado) {
         jogoIniciado = true;
         tempoInicioRodada = Date.now();
         iniciarCronometro();
@@ -105,10 +115,46 @@ user_input.addEventListener("input", () => {
         user_input.value = "";
         sortearProximaLetra();
     }
-});
+}
+
 //end game funks
 
 //player funks
+
+//botão reiniciar
+btn_reiniciar_game.addEventListener("click",(e)=>{
+    e.preventDefault()
+    if(game_letter.innerText = "FIM!")
+    {
+        jogoIniciado = false
+        acertos = 0
+        pontos.innerText = acertos;
+        tempoAcumulado = 0
+        sortearProximaLetra()
+        btn_reiniciar_game.style.transform = "rotateX(-90deg)"
+        tempo_medio_resultado.style.transform = "rotateX(-90deg)"
+        user_input.disabled = false
+        user_input.focus()
+    }
+})
+
+//botão salvar recorte
+btn_salvar_recorde.addEventListener("click", (e) =>{
+    e.preventDefault()
+    if(game_letter.innerText != "FIM!" || pontos < TOTAL_TENTATIVAS)
+    {
+        btn_salvar_recorde.style.backgroundColor = "red"
+        setTimeout(() => {
+            btn_salvar_recorde.style.backgroundColor = "white"
+        }, 200);
+        // clearInterval(block_recorde)
+    }
+    else
+    {
+        salvar_recorde()
+    }
+})
+
 nickname_registrado.addEventListener("click", () => {
     primeira_troca = false
     nickname_registrado.style.left = "100%"
@@ -132,7 +178,16 @@ form_nickname.addEventListener("submit", (e) =>{
         }, 100);
     }
 })
-
-
-
 //end Player funks
+
+//para o back end
+async function salvar_recorde() {
+    alert("salvando")
+}
+
+
+async function testar_api(params) {
+    const url = await (await fetch("http://localhost:3000/")).json()
+    console.log(url.mensagem);
+}
+testar_api()

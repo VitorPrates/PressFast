@@ -168,8 +168,7 @@ main .container_game .display_game p {
 main .container_game .display_game span {
   font-size: 1.6em;
 }
-main .container_game .display_game button {
-  margin: 20px;
+main .container_game .display_game #btn_salvar_recorde, main .container_game .display_game #btn_reiniciar_game {
   cursor: pointer;
   background-color: white;
   border: none;
@@ -177,7 +176,19 @@ main .container_game .display_game button {
   font-size: 1.3em;
   display: block;
   transform: rotateX(90deg);
+  margin-bottom: 10px;
+  padding: 0 5px;
+  border-radius: 5px 5px 0 0;
   transition: 0.2s ease-in-out;
+}
+main .container_game .display_game #btn_reiniciar_game {
+  transform: rotateX(90deg);
+  margin-bottom: -20px;
+}
+main .container_game .display_game #tempo_medio_resultado {
+  transform: rotateX(90deg);
+  transition: 0.3s ease-in-out;
+  margin-bottom: 10px;
 }
 main .container_ajustes {
   width: 400px;
@@ -246,16 +257,26 @@ main .container_sobre {
   border: 1px solid;
   border-radius: 10px;
   display: flex;
-  flex-flow: wrap column;
+  flex-flow: column;
   align-items: center;
-  justify-content: center;
+  padding: 10px;
   position: absolute;
-  gap: 10%;
+  gap: 20px;
   transition: 0.35s ease-in-out;
   transform: translateX(-200vw);
+  overflow-y: scroll;
 }
 main .container_sobre p {
   width: 90%;
+}
+main .container_sobre::-webkit-scrollbar {
+  border-radius: 0px 10px 10px 0px;
+  padding: 2px;
+  background-color: var(--basic1);
+}
+main .container_sobre::-webkit-scrollbar-thumb {
+  background-color: var(--basic2);
+  border-radius: 0px 10px 10px 0px;
 }
 
 footer {
