@@ -187,7 +187,14 @@ form_nickname.addEventListener("submit", (e) =>{
 
 //para o back end
 async function salvar_recorde() {
-    alert("salvando")
+    alert("Salvando")
+    let recorde = {
+        dificultade: dificultade,
+        tempo: (tempoAcumulado / TOTAL_TENTATIVAS),
+        nickname: nickname_registrado.innerHTML.replace("<img src=\"imgs/click.gif\" alt=\"\">","").trim()
+    }
+    console.log(recorde);
+    
 }
 
 
