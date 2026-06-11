@@ -130,8 +130,8 @@ btn_reiniciar_game.addEventListener("click",(e)=>{
     e.preventDefault()
     reiniciar_game()
 })
-function reiniciar_game(mensagem) {
-    console.log(mensagem);
+function reiniciar_game() {
+   
     
     user_input.value = ""
     if(game_letter.innerText = "FIM!")
@@ -161,7 +161,7 @@ btn_salvar_recorde.addEventListener("click", (e) =>{
     else
     {
         salvar_recorde()
-        reiniciar_game()
+        
     }
 })
 
@@ -209,35 +209,51 @@ async function salvar_recorde() {
     <h5>Salvando...</h5>
     `
     display_salvando.style.bottom = "-29px"
-    setTimeout(() => {
+    
+    console.log(recorde);
+    try {
+        const resposta = await fetch("http://localhost:3000/salvarrecorde", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(recorde)
+        })
+        if (!resposta.ok) {
+            throw new Error(`HTTP error! status: ${resposta}`);
+        }
+
+        const data = await resposta.json();
+        console.log(data);
+        
+        display_salvando.innerHTML = `
+        //         <h5>${(recorde.nickname)}</h5>
+        //         <h5>${(recorde.tempo).toFixed(2)}</h5>
+        //         <h5>${recorde.dificultade}</h5>
+        //         <h5>Salvo!</h5>`
+        setTimeout(() => {
+            display_salvando.style.bottom = "0px"
+        }, 3500);
+        reiniciar_game()
+    } catch (error) {
+        console.log(error);
         display_salvando.innerHTML = `
         <h5>${(recorde.nickname)}</h5>
         <h5>${(recorde.tempo).toFixed(2)}</h5>
         <h5>${recorde.dificultade}</h5>
-        <h5>Salvo!</h5>
-    `    
-    }, 1500);
-    setTimeout(() => {
-         display_salvando.style.bottom = "0px"
-    }, 3500);
+        <h5>Erro ao salvar :(</h5>`
+        // setTimeout(() => {
+        //     display_salvando.style.bottom = "0px"
+        // }, 3500);
+    }
     
-    console.log(recorde);
-    // fetch("http://localhost:3000/salvarrecorde", {
-    // method: "POST",
-    // headers: {
-    //     "Content-Type": "application/json"
-    // },
-    // body: JSON.stringify(recorde)
-    // })
-    // .then(res => res.json())
-    // .then(data => console.log(data));
 }
 
 
-async function testar_api(params) {
-    const url = await (await fetch("http://localhost:3000/")).json()
-    console.log(url.mensagem);
-}
-testar_api()
+// async function testar_api(params) {
+//     const url = await (await fetch("http://localhost:3000/")).json()
+//     console.log(url.mensagem);
+// }
+// testar_api()
 
 export default reiniciar_game

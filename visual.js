@@ -67,7 +67,7 @@ btn_ajuste_dificuldade.forEach((btn,index) => {
         });
         Array.from(nav_btns.children)[2].classList.add("btn_nav_selected")
         setTimeout(() => {
-            reiniciar_game("aqui")
+            reiniciar_game()
         }, 300);
     })
 })
