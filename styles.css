@@ -221,6 +221,14 @@ main .container_game .displays .display_game #btn_salvar_recorde, main .containe
   border-radius: 5px 5px 0 0;
   transition: 0.2s ease-in-out;
 }
+main .container_game .displays .display_game #btn_salvar_recorde {
+  position: relative;
+}
+main .container_game .displays .display_game #btn_salvar_recorde img {
+  position: absolute;
+  width: 25%;
+  left: 100%;
+}
 main .container_game .displays .display_game #btn_reiniciar_game {
   transform: rotateX(90deg);
   margin-bottom: -20px;
@@ -365,8 +373,9 @@ main .container_ranking .ranking_resultados #rangking_result_pontos_display {
   transform: translateX(110%);
 }
 main .container_sobre {
-  width: 400px;
-  height: 400px;
+  max-width: 600px;
+  width: 70%;
+  height: 90%;
   border: 1px solid;
   border-radius: 10px;
   display: flex;

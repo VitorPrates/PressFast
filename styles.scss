@@ -256,6 +256,16 @@ main
                     border-radius: 5px 5px 0 0;
                     transition: 0.2s ease-in-out;
                 }
+                #btn_salvar_recorde
+                {
+                    position: relative;
+                    img
+                    {
+                        position: absolute;
+                        width: 25%;
+                        left: 100%;
+                    }
+                }
                 #btn_reiniciar_game
                 {
                     transform: rotateX(90deg);
@@ -427,8 +437,10 @@ main
     }
     .container_sobre
     {
-        width: 400px;
-        height: 400px;
+        max-width: 600px;
+        // max-height: 600px;
+        width: 70%;
+        height: 90%;
         border: 1px solid;
         border-radius: 10px;
         display: flex;

@@ -1,7 +1,7 @@
 //player things
 const form_nickname = document.getElementById("form_nickname")
 const nickname_registrado = document.getElementById("nickname_registrado")
-let primeira_troca = true
+let primeiro_save = true
 
 //Game coisas
 const user_input = document.getElementById("input_user");
@@ -153,6 +153,7 @@ function reiniciar_game() {
 //botão salvar recorte
 btn_salvar_recorde.addEventListener("click", (e) =>{
     e.preventDefault()
+    btn_salvar_recorde.innerHTML = "Salvar Recorde"
     if(game_letter.innerText != "FIM!" || pontos < TOTAL_TENTATIVAS)
     {
         btn_salvar_recorde.style.backgroundColor = "red"
@@ -175,7 +176,6 @@ btn_salvar_recorde.addEventListener("click", (e) =>{
 
 nickname_registrado.addEventListener("click", () => {
     recordes_por_nick.innerHTML = "<p>...</p>"
-    primeira_troca = false
     nickname_registrado.style.left = "100%"
     btn_salvar_recorde.style.transform = "rotatex(90deg)"
     setTimeout(() => {
@@ -192,7 +192,7 @@ form_nickname.addEventListener("submit", (e) =>{
         nickname_registrado.style.display = "flex"
         btn_salvar_recorde.style.transform = "rotatex(0deg)"
         setTimeout(() => {
-            nickname_registrado.innerHTML = primeira_troca? `${dados.nickname} <img src="imgs/click.gif" alt="">` : `${dados.nickname}`
+            nickname_registrado.innerHTML = `${dados.nickname}`
             nickname_registrado.style.left = "0%"
         }, 100);
         user_input.focus()
