@@ -202,7 +202,7 @@ async function montar_ranking() {
     rank_tempo.innerHTML = "<p>...</p>"
     rank_ponto.innerHTML = "<p>...</p>"
     try {
-        const resposta = await fetch("http://localhost:3000/atualranking")
+        const resposta = await fetch("https://pressfast-api.vercel.app/atualranking")
         if(!resposta.ok)
         {
             throw new Error("Erro ao montar ranking");
@@ -236,7 +236,7 @@ montar_ranking()
 async function buscarrecordes(nickname) {
     recordes_por_nick.innerHTML = "<p>...</p>"
     try {
-        const resposta = await fetch("http://localhost:3000/buscarnome", {
+        const resposta = await fetch("https://pressfast-api.vercel.app/buscarnome", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -292,7 +292,7 @@ async function salvar_recorde() {
     
     // console.log(recorde);
     try {
-        const resposta = await fetch("http://localhost:3000/salvarrecorde", {
+        const resposta = await fetch("https://pressfast-api.vercel.app/salvarrecorde", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -332,7 +332,7 @@ async function salvar_recorde() {
 
 
 // async function testar_api(params) {
-//     const url = await (await fetch("http://localhost:3000/")).json()
+//     const url = await (await fetch("https://pressfast-api.vercel.app/")).json()
 //     console.log(url.mensagem);
 // }
 // testar_api()
