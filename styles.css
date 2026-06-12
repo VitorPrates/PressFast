@@ -293,17 +293,57 @@ main .container_ajustes #ajuste_facil:hover::after, main .container_ajustes #aju
 }
 main .container_ranking {
   width: 400px;
-  height: 400px;
+  height: 90%;
   border: 1px solid;
   border-radius: 10px;
   display: flex;
-  flex-flow: wrap column;
+  flex-flow: column;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   position: absolute;
-  gap: 10%;
   transition: 0.35s ease-in-out;
   transform: translateX(100vw);
+}
+main .container_ranking h2 {
+  margin: 10px 0px;
+  width: 90%;
+  text-align: center;
+  border-bottom: 1px solid;
+}
+main .container_ranking #tipo_ranking {
+  margin: 10px 0px;
+}
+main .container_ranking #rangking_result_display {
+  width: 95%;
+  height: 85%;
+  border-radius: 10px;
+  border: 1px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  padding: 10px;
+  overflow-y: scroll;
+  gap: 10px;
+}
+main .container_ranking #rangking_result_display li {
+  list-style: none;
+  width: 90%;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 10px;
+  border: 1px solid;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+main .container_ranking #rangking_result_display li h5 {
+  font-size: 1.2em;
+}
+main .container_ranking #rangking_result_display::-webkit-scrollbar {
+  display: none;
 }
 main .container_sobre {
   width: 400px;

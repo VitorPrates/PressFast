@@ -9,6 +9,10 @@ const main_container_sobre = document.querySelector(".container_sobre")
 const btn_ajuste_dificuldade = document.querySelectorAll(".btn_ajuste_dificuldade")
 const dificuldade_display = document.getElementById("dificuldade_display")
 
+window.addEventListener("load", () => {
+    mudar_tela("Ranking")
+})
+
 nav_btns.addEventListener("click", (e) => {
     // console.log(e.target.innerHTML);    
     Array.from(nav_btns.children).forEach((child) => {
