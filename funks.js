@@ -164,6 +164,7 @@ btn_salvar_recorde.addEventListener("click", (e) =>{
 })
 
 nickname_registrado.addEventListener("click", () => {
+    recordes_por_nick.innerHTML = "<p>...</p>"
     primeira_troca = false
     nickname_registrado.style.left = "100%"
     btn_salvar_recorde.style.transform = "rotatex(90deg)"

@@ -9,6 +9,11 @@ const main_container_sobre = document.querySelector(".container_sobre")
 const btn_ajuste_dificuldade = document.querySelectorAll(".btn_ajuste_dificuldade")
 const dificuldade_display = document.getElementById("dificuldade_display")
 
+//ranking
+const form_tipo_ranking = document.getElementById("tipo_ranking")
+const rank_tempo = document.getElementById("rangking_result_tempo_display")
+const rank_ponto = document.getElementById("rangking_result_pontos_display")
+
 window.addEventListener("load", () => {
     mudar_tela("Ranking")
 })
@@ -76,3 +81,22 @@ btn_ajuste_dificuldade.forEach((btn,index) => {
     })
 })
 
+
+form_tipo_ranking.addEventListener("submit", (e) => {
+    e.preventDefault()
+})
+form_tipo_ranking.addEventListener("change", (e) => {
+    const escolha = e.target.value;
+    switch (escolha) {
+        case "Pontos":
+            rank_tempo.style.transform = "translatex(110%)"
+            rank_ponto.style.transform = "translatex(0%)"
+            break;
+        case "Tempo":
+            rank_tempo.style.transform = "translatex(0%)"
+            rank_ponto.style.transform = "translatex(110%)"
+            break;
+    
+        
+    }
+})

@@ -313,9 +313,20 @@ main .container_ranking h2 {
 main .container_ranking #tipo_ranking {
   margin: 10px 0px;
 }
-main .container_ranking #rangking_result_display {
+main .container_ranking .ranking_resultados {
+  width: 100%;
+  height: 90%;
+  padding-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+main .container_ranking .ranking_resultados #rangking_result_tempo_display, main .container_ranking .ranking_resultados #rangking_result_pontos_display {
   width: 95%;
-  height: 85%;
+  height: 95%;
   border-radius: 10px;
   border: 1px solid;
   display: flex;
@@ -325,8 +336,10 @@ main .container_ranking #rangking_result_display {
   padding: 10px;
   overflow-y: scroll;
   gap: 10px;
+  position: absolute;
+  transition: 0.3s ease-in-out;
 }
-main .container_ranking #rangking_result_display li {
+main .container_ranking .ranking_resultados #rangking_result_tempo_display li, main .container_ranking .ranking_resultados #rangking_result_pontos_display li {
   list-style: none;
   width: 90%;
   height: -moz-fit-content;
@@ -339,11 +352,17 @@ main .container_ranking #rangking_result_display li {
   align-items: center;
   justify-content: center;
 }
-main .container_ranking #rangking_result_display li h5 {
+main .container_ranking .ranking_resultados #rangking_result_tempo_display li h5, main .container_ranking .ranking_resultados #rangking_result_pontos_display li h5 {
   font-size: 1.2em;
 }
-main .container_ranking #rangking_result_display::-webkit-scrollbar {
+main .container_ranking .ranking_resultados #rangking_result_tempo_display::-webkit-scrollbar, main .container_ranking .ranking_resultados #rangking_result_pontos_display::-webkit-scrollbar {
   display: none;
+}
+main .container_ranking .ranking_resultados #rangking_result_tempo_display {
+  transform: translateX(0%);
+}
+main .container_ranking .ranking_resultados #rangking_result_pontos_display {
+  transform: translateX(110%);
 }
 main .container_sobre {
   width: 400px;

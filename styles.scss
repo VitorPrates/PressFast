@@ -366,41 +366,64 @@ main
         {
             margin: 10px 0px;
         }
-        #rangking_result_display
+        .ranking_resultados
         {
-            width: 95%;
-            height: 85%;
-            border-radius: 10px;
-            border: 1px solid;
+            width: 100%;
+            height: 90%;
+            padding-bottom: 15px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: start;
-            padding: 10px;
-            overflow-y: scroll;
-            gap: 10px;
-            li
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            #rangking_result_tempo_display, #rangking_result_pontos_display
             {
-                list-style: none;
-                width: 90%;
-                height: fit-content;
-                padding: 10px;
-                border: 1px solid;
+                width: 95%;
+                height: 95%;
                 border-radius: 10px;
+                border: 1px solid;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                justify-content: center;
-                h5
+                justify-content: start;
+                padding: 10px;
+                overflow-y: scroll;
+                gap: 10px;
+                position: absolute;
+                transition: 0.3s ease-in-out;
+                li
                 {
-                    font-size: 1.2em;
+                    list-style: none;
+                    width: 90%;
+                    height: fit-content;
+                    padding: 10px;
+                    border: 1px solid;
+                    border-radius: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    h5
+                    {
+                        font-size: 1.2em;
+                    }
                 }
             }
+            #rangking_result_tempo_display::-webkit-scrollbar,#rangking_result_pontos_display::-webkit-scrollbar
+            {
+                display: none;
+            }
+            #rangking_result_tempo_display
+            {
+                transform: translateX(0%);
+            }
+            #rangking_result_pontos_display
+            {
+                transform: translateX(110%);
+            }
         }
-        #rangking_result_display::-webkit-scrollbar
-        {
-            display: none;
-        }
+        
     }
     .container_sobre
     {
