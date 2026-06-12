@@ -208,7 +208,6 @@ async function montar_ranking() {
             throw new Error("Erro ao montar ranking");
         }
         const data = await resposta.json();
-        console.log(data);
         rank_tempo.innerHTML = ""
         data.topTempos.forEach((top, indice) =>{
             let tempo = document.createElement("li")
@@ -248,7 +247,6 @@ async function buscarrecordes(nickname) {
             throw new Error("Não encontrado");
         }
         const data = await resposta.json();
-        // console.log(data)
         recordes_por_nick.innerHTML = `Pontuação: ${data.Player_pontuacao}`
         let recordes_salvos = document.createElement("ul")
         data.Player_recordes.forEach(recorde =>{
@@ -257,14 +255,6 @@ async function buscarrecordes(nickname) {
             recordes_salvos.appendChild(recor)
         })
         recordes_por_nick.appendChild(recordes_salvos)
-        // <span>Pontuação: 10</span>
-        //                 <ul>
-        //                     <li>0.00s</li>
-        //                     <li>0.00s</li>
-        //                     <li>0.00s</li>
-        //                     <li>0.00s</li>
-        //                     <li>0.00s</li>
-        //                 </ul>
     } catch (error) {
         recordes_por_nick.innerHTML = "Sem registros"
     }
@@ -290,7 +280,6 @@ async function salvar_recorde() {
     `
     display_salvando.style.bottom = "-29px"
     
-    // console.log(recorde);
     try {
         const resposta = await fetch("https://pressfast-api.vercel.app/salvarrecorde", {
         method: "POST",
@@ -304,7 +293,6 @@ async function salvar_recorde() {
         }
 
         const data = await resposta.json();
-        // console.log(data);
         
         display_salvando.innerHTML = `
         //         <h5>${(recorde.nickname)}</h5>
@@ -317,7 +305,6 @@ async function salvar_recorde() {
         buscarrecordes(nickname_registrado.innerHTML.replace("<img src=\"imgs/click.gif\" alt=\"\">","").trim())
         reiniciar_game()
     } catch (error) {
-        console.log(error);
         display_salvando.innerHTML = `
         <h5>${(recorde.nickname)}</h5>
         <h5>${(recorde.tempo).toFixed(2)}</h5>
@@ -329,7 +316,6 @@ async function salvar_recorde() {
     }
     
 }
-
 
 // async function testar_api(params) {
 //     const url = await (await fetch("https://pressfast-api.vercel.app/")).json()
