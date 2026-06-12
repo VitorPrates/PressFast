@@ -15,7 +15,7 @@ const rank_tempo = document.getElementById("rangking_result_tempo_display")
 const rank_ponto = document.getElementById("rangking_result_pontos_display")
 
 window.addEventListener("load", () => {
-    mudar_tela("Ranking")
+    mudar_tela("Game")
 })
 
 nav_btns.addEventListener("click", (e) => {

@@ -13,6 +13,10 @@ const btn_reiniciar_game = document.getElementById("btn_reiniciar_game")
 const tempo_medio_resultado = document.getElementById("tempo_medio_resultado")
 const recordes_por_nick = document.querySelector(".recordes_por_nick")
 let dificultade = "Dificil"
+//ranking
+const rank_tempo = document.getElementById("rangking_result_tempo_display")
+const rank_ponto = document.getElementById("rangking_result_pontos_display")
+
 
 const letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const TOTAL_TENTATIVAS = 15;
@@ -193,6 +197,40 @@ form_nickname.addEventListener("submit", (e) =>{
 //end Player funks
 
 //para o back end
+
+async function montar_ranking() {
+    rank_tempo.innerHTML = "<p>...</p>"
+    rank_ponto.innerHTML = "<p>...</p>"
+    try {
+        const resposta = await fetch("http://localhost:3000/atualranking")
+        if(!resposta.ok)
+        {
+            throw new Error("Erro ao montar ranking");
+        }
+        const data = await resposta.json();
+        console.log(data);
+        rank_tempo.innerHTML = ""
+        data.topTempos.forEach((top, indice) =>{
+            let tempo = document.createElement("li")
+            tempo.innerHTML = `<h5>${top.username}</h5>
+                                <span>${(+top.recordes[0] / 1000).toFixed(2)}</span>`
+            rank_tempo.appendChild(tempo)
+        })
+        rank_ponto.innerHTML = ""
+        data.topPontos.forEach((top, indice) =>{
+            let ponto = document.createElement("li")
+            ponto.innerHTML = `<h5>${top.username}</h5>
+                                <span>${top.score}</span>`
+            rank_ponto.appendChild(ponto)
+        })
+    } catch (error) {
+        rank_tempo.innerHTML = `<p>Erro ao montar o ranking :(</p>`
+        rank_ponto.innerHTML = `<p>Erro ao montar o ranking :(</p>`
+    }
+}
+montar_ranking()
+
+
 
 //buscando recordes do player
 async function buscarrecordes(nickname) {
