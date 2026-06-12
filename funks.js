@@ -159,6 +159,12 @@ btn_salvar_recorde.addEventListener("click", (e) =>{
         setTimeout(() => {
             btn_salvar_recorde.style.backgroundColor = "white"
         }, 200);
+        const display_salvando = document.querySelector(".msg_dados_salvos")
+        display_salvando.innerHTML = "<span>Jogue primeiro para salvar</span>"
+        display_salvando.style.bottom = "-29px"
+        setTimeout(() => {
+            display_salvando.style.bottom = "0px"
+        }, 2000);
         // clearInterval(block_recorde)
     }
     else
@@ -278,6 +284,7 @@ async function salvar_recorde() {
     <h5>${recorde.dificultade}</h5>
     <h5>Salvando...</h5>
     `
+    
     display_salvando.style.bottom = "-29px"
     
     try {

@@ -81,7 +81,13 @@ btn_ajuste_dificuldade.forEach((btn,index) => {
     })
 })
 
-
+dificuldade_display.addEventListener("click", () =>{
+    mudar_tela("Ajustes")
+    Array.from(nav_btns.children).forEach((child) => {
+    child.classList.remove("btn_nav_selected")
+    });
+    Array.from(nav_btns.children)[1].classList.add("btn_nav_selected")
+})
 form_tipo_ranking.addEventListener("submit", (e) => {
     e.preventDefault()
 })
@@ -96,7 +102,5 @@ form_tipo_ranking.addEventListener("change", (e) => {
             rank_tempo.style.transform = "translatex(0%)"
             rank_ponto.style.transform = "translatex(110%)"
             break;
-    
-        
     }
 })
