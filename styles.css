@@ -145,6 +145,36 @@ main .container_game .displays .display_player .recordes_por_nick {
   height: calc(100% - 45px);
   border-top: 1px solid;
   border-radius: 5px 5px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+main .container_game .displays .display_player .recordes_por_nick span {
+  height: 10%;
+  display: flex;
+  align-items: center;
+}
+main .container_game .displays .display_player .recordes_por_nick ul {
+  height: 90%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding: 0 0 5px 0px;
+  gap: 5px;
+}
+main .container_game .displays .display_player .recordes_por_nick ul li {
+  width: 90%;
+  height: 19%;
+  list-style: none;
+  border: 1px solid;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
 }
 main .container_game .displays .display_game {
   display: flex;

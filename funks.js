@@ -11,6 +11,7 @@ const timer_display = document.getElementById("timer");
 const btn_salvar_recorde = document.getElementById("btn_salvar_recorde")
 const btn_reiniciar_game = document.getElementById("btn_reiniciar_game")
 const tempo_medio_resultado = document.getElementById("tempo_medio_resultado")
+const recordes_por_nick = document.querySelector(".recordes_por_nick")
 let dificultade = "Dificil"
 
 const letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -131,8 +132,6 @@ btn_reiniciar_game.addEventListener("click",(e)=>{
     reiniciar_game()
 })
 function reiniciar_game() {
-   
-    
     user_input.value = ""
     if(game_letter.innerText = "FIM!")
     {
@@ -161,7 +160,6 @@ btn_salvar_recorde.addEventListener("click", (e) =>{
     else
     {
         salvar_recorde()
-        
     }
 })
 
@@ -187,11 +185,54 @@ form_nickname.addEventListener("submit", (e) =>{
             nickname_registrado.style.left = "0%"
         }, 100);
         user_input.focus()
+        buscarrecordes(dados.nickname)
+
     }
 })
 //end Player funks
 
 //para o back end
+
+//buscando recordes do player
+async function buscarrecordes(nickname) {
+    recordes_por_nick.innerHTML = "<p>...</p>"
+    try {
+        const resposta = await fetch("http://localhost:3000/buscarnome", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({nickname: nickname})
+        })
+        if(!resposta.ok)
+        {
+            throw new Error("Não encontrado");
+        }
+        const data = await resposta.json();
+        // console.log(data)
+        recordes_por_nick.innerHTML = `Pontuação: ${data.Player_pontuacao}`
+        let recordes_salvos = document.createElement("ul")
+        data.Player_recordes.forEach(recorde =>{
+            let recor = document.createElement("li")
+            recor.innerHTML = `${(+recorde/1000).toFixed(2)}s`
+            recordes_salvos.appendChild(recor)
+        })
+        recordes_por_nick.appendChild(recordes_salvos)
+        // <span>Pontuação: 10</span>
+        //                 <ul>
+        //                     <li>0.00s</li>
+        //                     <li>0.00s</li>
+        //                     <li>0.00s</li>
+        //                     <li>0.00s</li>
+        //                     <li>0.00s</li>
+        //                 </ul>
+    } catch (error) {
+        recordes_por_nick.innerHTML = "Sem registros"
+    }
+}
+
+
+//salvando recorde
 async function salvar_recorde() {
     // alert("Salvando")
     const display_salvando = document.querySelector(".msg_dados_salvos")
@@ -210,7 +251,7 @@ async function salvar_recorde() {
     `
     display_salvando.style.bottom = "-29px"
     
-    console.log(recorde);
+    // console.log(recorde);
     try {
         const resposta = await fetch("http://localhost:3000/salvarrecorde", {
         method: "POST",
@@ -224,7 +265,7 @@ async function salvar_recorde() {
         }
 
         const data = await resposta.json();
-        console.log(data);
+        // console.log(data);
         
         display_salvando.innerHTML = `
         //         <h5>${(recorde.nickname)}</h5>
@@ -234,6 +275,7 @@ async function salvar_recorde() {
         setTimeout(() => {
             display_salvando.style.bottom = "0px"
         }, 3500);
+        buscarrecordes(nickname_registrado.innerHTML.replace("<img src=\"imgs/click.gif\" alt=\"\">","").trim())
         reiniciar_game()
     } catch (error) {
         console.log(error);
