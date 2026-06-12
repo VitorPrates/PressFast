@@ -303,6 +303,7 @@ async function salvar_recorde() {
             display_salvando.style.bottom = "0px"
         }, 3500);
         buscarrecordes(nickname_registrado.innerHTML.replace("<img src=\"imgs/click.gif\" alt=\"\">","").trim())
+        montar_ranking()
         reiniciar_game()
     } catch (error) {
         display_salvando.innerHTML = `
