@@ -416,4 +416,19 @@ footer {
 }
 footer a {
   color: orange;
+}
+
+@media screen and (max-width: 700px) {
+  .container_game {
+    min-height: 95%;
+    height: 95%;
+  }
+  .container_game .displays {
+    flex-direction: column-reverse;
+    padding: 10px;
+  }
+  .container_game .displays .display_player, .container_game .displays .display_game {
+    min-width: 100%;
+    max-height: 45%;
+  }
 }/*# sourceMappingURL=styles.css.map */

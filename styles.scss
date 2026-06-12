@@ -489,3 +489,21 @@ footer
         color: orange;
     }
 }
+
+@media screen and (max-width: 700px)
+{
+    .container_game
+    {
+        min-height: 95%;
+        height: 95%;
+        .displays
+        {
+            flex-direction: column-reverse;
+            padding: 10px;
+            .display_player, .display_game{
+                min-width: 100%;
+                max-height: 45%;
+            }
+        }
+    }
+}
