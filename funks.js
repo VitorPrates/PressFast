@@ -15,7 +15,7 @@ const recordes_por_nick = document.querySelector(".recordes_por_nick")
 let dificultade = "Dificil"
 
 const letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const TOTAL_TENTATIVAS = 3;
+const TOTAL_TENTATIVAS = 15;
 
 let acertos = 0;
 let tempoRestante = 3;
