@@ -494,7 +494,7 @@ footer
 {
     .container_game
     {
-        min-height: 95%;
+        min-height: 85%;
         height: 95%;
         .displays
         {
@@ -504,6 +504,10 @@ footer
                 min-width: 100%;
                 max-height: 45%;
             }
+        }
+        .msg_dados_salvos
+        {
+            border-radius: 10px 10px 0px 0px  !important;
         }
     }
 }

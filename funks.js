@@ -162,10 +162,10 @@ btn_salvar_recorde.addEventListener("click", (e) =>{
         }, 200);
         const display_salvando = document.querySelector(".msg_dados_salvos")
         display_salvando.innerHTML = "<span>Jogue primeiro para salvar</span>"
-        display_salvando.style.bottom = "-29px"
+        display_salvando.style.bottom = window.innerWidth > 600? "-29px" : "100%"
         setTimeout(() => {
             display_salvando.style.bottom = "0px"
-        }, 2000);
+        }, 2500);
         // clearInterval(block_recorde)
     }
     else
